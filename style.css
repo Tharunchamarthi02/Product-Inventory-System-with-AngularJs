@@ -1,0 +1,20 @@
+
+.inp {
+    width: 60%;
+    height: 550px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 5px solid palevioletred;
+    margin-left: 20%;
+    overflow: scroll;
+}
+.inp input {
+    outline: none;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 2px solid deepskyblue;
+}
+.inp table {
+    margin-left: 200px;
+}
+

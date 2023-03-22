@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Product Inventory System
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var app = angular.module("myapp",[]);
+        app.controller("product",function($scope){
+             $scope.names = [];
+             $scope.prices = [];
+             $scope.additem = function() {
+                $scope.names.push($scope.name);
+                $scope.prices.push($scope.price);
+             };
+             $scope.remove = function($index) {
+                $scope.names.splice($index,1);
+                $scope.prices.splice($index,1);
+             }
+
+         });
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="product">
+    <div class="inp">
+        <h1>Product Inventory System</h1>
+        Enter the Product Name: <br> <input type="text" ng-model="name"> <br><br>
+        Enter the Product Price: <br><input type="number" ng-model="price"> <br><br>
+        <button ng-click="additem()">Add Item</button>
+        <br><br>
+        <table style="width: 50%; text-align: center;" border="1" cellspacing="0">
+            <tr style="background-color: cyan; color: black;">
+                <th>Name</th><th>Price</th><th>Remove</th>
+            </tr>
+            <tr ng-repeat="item in names track by $index">
+                 <td>{{item}}</td>
+                 <td>Rs.{{prices[$index]}}</td>
+                 <td>
+                     <span ng-click="remove($index)" style="color: red;cursor: pointer;">
+                         Delete
+                     </span>
+                 </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
